@@ -1,0 +1,79 @@
+! CRIANDO LINHAS
+new line.L1-2 linecode=LINHA12 bus1=100 bus2=200 length=1
+new line.L1-5 linecode=LINHA15 bus1=100 bus2=500 length=1
+new line.L2-3 linecode=LINHA23 bus1=200 bus2=300 length=1
+new line.L2-4 linecode=LINHA24 bus1=200 bus2=400 length=1
+
+!Comentar essa linha
+new line.L2-5 linecode=LINHA25 bus1=200 bus2=500 length=1
+
+new line.L3-4 linecode=LINHA34 bus1=300 bus2=400 length=1
+new line.L4-5 linecode=LINHA45 bus1=400 bus2=500 length=1
+new line.L6-11 linecode=LINHA611 bus1=600 bus2=1100 length=1
+new line.L6-12 linecode=LINHA612 bus1=600 bus2=1200 length=1
+new line.L6-13 linecode=LINHA613 bus1=600 bus2=1300 length=1
+new line.L9-10 linecode=LINHA910 bus1=900 bus2=1000 length=1
+new line.L9-14 linecode=LINHA914 bus1=900 bus2=1400 length=1
+new line.L10-11 linecode=LINHA1011 bus1=1000 bus2=1100 length=1
+new line.L12-13 linecode=LINHA1213 bus1=1200 bus2=1300 length=1
+new line.L13-14 linecode=LINHA1314 bus1=1300 bus2=1400 length=1
+
+
+
+! CRIANDO TRAFOS
+new transformer.Trafo47 kVAs = [100000, 100000] xhl=20.912 ppm=0
+~ wdg=1 bus=400 kv=132 tap=0.978
+~ wdg=2 bus=700 kv=1
+~ %loadloss=0
+
+new transformer.Trafo49 kVAs = [100000, 100000] xhl=55.618 ppm=0
+~ wdg=1 bus=400 kv=132 tap=0.932
+~ wdg=2 bus=900 kv=33
+~ %loadloss=0
+
+new transformer.Trafo56 kVAs = [100000, 100000]  xhl=25.202 ppm=0
+~ wdg=1 bus=500 kv=132 tap=0.969
+~ wdg=2 bus=600 kv=33
+~ %loadloss=0
+
+new transformer.Trafo78 kVAs = [100000, 100000]  xhl=17.615 ppm=0
+~ wdg=1 bus=700 kv=1
+~ wdg=2 bus=800 kv=11
+~ %loadloss=0
+
+new transformer.Trafo79 kVAs = [100000, 100000]  xhl=11.001 ppm=0
+~ wdg=1 bus=700 kv=1
+~ wdg=2 bus=900 kv=33
+~ %loadloss=0
+
+
+! CRIANDO LOADSHAPE
+new loadshape.Zona1 npts=24 interval=0 csvfile=Curva1.csv
+!~ mult = (0.69 0.51 0.44 0.41 0.55 0.85 1.01 0.80 0.89 0.91 1.02 1.03 1.11 0.98 0.94 1.02 1.26 1.51 1.6 1.67 1.5 1.3 0.9 0.8)
+
+new loadshape.Zona2 npts=24 interval=0 csvfile=Curva2.csv
+
+new loadshape.Zona3 npts=24 interval=0 csvfile=Curva3.csv
+
+! CRIANDO CARGAS
+new load.Carga2 bus1=200 kv=132 kW=21700 kVAr=12700 vminpu=0.9 vmaxpu=1.1 daily=Zona3
+new load.Carga3 bus1=300 kv=132 kW=94200 kVAr=19000 vminpu=0.9 vmaxpu=1.1 daily=Zona3
+new load.Carga4 bus1=400 kv=132 kW=47800 kVAr=-3900 vminpu=0.9 vmaxpu=1.1 daily=Zona3
+new load.Carga5 bus1=500 kv=132 kW=7600 kVAr=1600 vminpu=0.9 vmaxpu=1.1 daily=Zona2
+new load.Carga6 bus1=600 kv=33 kW=11200 kVAr=7500 vminpu=0.9 vmaxpu=1.1 daily=Zona3
+new load.Carga9 bus1=900 kv=33 kW=29500 kVAr=16600 vminpu=0.9 vmaxpu=1.1 daily=Zona2
+new load.Carga10 bus1=1000 kv=33 kW=9000 kVAr=5800 vminpu=0.9 vmaxpu=1.1 daily=Zona2
+new load.Carga11 bus1=1100 kv=33 kW=3500 kVAr=1800 vminpu=0.9 vmaxpu=1.1 daily=Zona2
+new load.Carga12 bus1=1200 kv=33 kW=6100 kVAr=1600 vminpu=0.9 vmaxpu=1.1 daily=Zona1
+new load.Carga13 bus1=1300 kv=33 kW=13500 kVAr=5800 vminpu=0.9 vmaxpu=1.1 daily=Zona1
+new load.Carga14 bus1=1400 kv=33 kW=14900 kVAr=5000 vminpu=0.9 vmaxpu=1.1 daily=Zona1
+
+
+! CRIANDO GERADORES
+new generator.G2 bus1=200 kv=132 kW=40000 model=3 vpu=1.045 maxkvar=50000 minkvar=-40000 pvfactor=1
+new generator.G3 bus1=300 kv=132 kW=1 model=3 vpu=1.01 maxkvar=40000 minkvar=0 pvfactor=1
+new generator.G6 bus1=600 kv=33 kW=1 model=3 vpu=1.07 maxkvar=24000 minkvar=-6000 pvfactor=1
+new generator.G8 bus1=800 kv=11 kW=1 model=3 vpu=1.09 maxkvar=24000 minkvar=-6000 pvfactor=1
+
+! CRIANDO CAPACITOR
+new capacitor.Cap bus=900 kV=33 kvar=19000

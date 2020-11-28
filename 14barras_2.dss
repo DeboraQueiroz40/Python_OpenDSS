@@ -1,0 +1,87 @@
+Clear
+
+new circuit.MEU_CIRCUITO bus1=100 basekv=132 pu=1.06 MVASC3=500000  MVASC1=500000
+set tolerance=0.0001
+set mode = daily
+set stepsize = 1h
+set number = 24
+
+Redirect LinhasCodigos.dss
+Redirect DefinirDados_2.dss
+
+Set voltagebases = [132, 33, 11, 1]
+Calcvoltagebases
+
+new monitor.Barra1_Tensao element=Vsource.Source terminal=1 mode=0
+new monitor.Barra2_Tensao element=load.Carga2 terminal=1 mode=0
+new monitor.Barra3_Tensao element=load.Carga3 terminal=1 mode=0
+new monitor.Barra4_Tensao element=load.Carga4 terminal=1 mode=0
+new monitor.Barra5_Tensao element=load.Carga5 terminal=1 mode=0
+new monitor.Barra6_Tensao element=load.Carga6 terminal=1 mode=0
+new monitor.Barra7_Tensao element=transformer.Trafo78 terminal=1 mode=0
+new monitor.Barra8_Tensao element=generator.G8 terminal=1 mode=0
+new monitor.Barra9_Tensao element=load.Carga9 terminal=1 mode=0
+new monitor.Barra10_Tensao element=load.Carga10 terminal=1 mode=0
+new monitor.Barra11_Tensao element=load.Carga11 terminal=1 mode=0
+new monitor.Barra12_Tensao element=load.Carga12 terminal=1 mode=0
+new monitor.Barra13_Tensao element=load.Carga13 terminal=1 mode=0
+new monitor.Barra14_Tensao element=load.Carga14 terminal=1 mode=0
+
+new monitor.Circuito_Potencia element=Vsource.Source terminal=1 mode=1 ppolar=no
+
+new monitor.Med1 element=line.L1-2 terminal=1 mode=1 ppolar=no
+new monitor.Med2 element=line.L1-5 terminal=1 mode=1 ppolar=no
+new monitor.Med3 element=generator.G2 terminal=1 mode=1 ppolar=no
+new monitor.Med4 element=generator.G3 terminal=1 mode=1 ppolar=no
+new monitor.Med5 element=generator.G6 terminal=1 mode=1 ppolar=no
+new monitor.Med6 element=generator.G8 terminal=1 mode=1 ppolar=no
+
+
+!ERRO DE NÃO PD: new energymeter.medidorSource element=Vsource.source terminal=1
+
+
+solve
+
+
+!Show Voltage LN Nodes
+!Show Power
+
+
+!Export monitors circuito_potencia
+!Export monitors Med1
+!Export monitors Med2
+!Export monitors Med3
+!Export monitors Med4
+!Export monitors Med5
+!Export monitors Med6
+
+!Plot monitor object= circuito_potencia channels=(1 ) 
+
+!Export monitors barra1_tensao
+!Plot monitor object= barra1_tensao channels=(1 3 5) bases=(76210.23553303 76210.23553303 76210.23553303) !valor de fase
+!Export monitors barra2_tensao
+!Plot monitor object= barra2_tensao channels=(1 3 5) bases=(76210.23553303 76210.23553303 76210.23553303)
+Export monitors barra3_tensao
+!Plot monitor object= barra3_tensao channels=(1 3 5) bases=(76210.23553303 76210.23553303 76210.23553303)
+!Export monitors barra4_tensao
+!Plot monitor object= barra4_tensao channels=(1 3 5) bases=(76210.23553303 76210.23553303 76210.23553303)
+!Export monitors barra5_tensao
+!Plot monitor object= barra5_tensao channels=(1 3 5) bases=(76210.23553303 76210.23553303 76210.23553303)
+!Export monitors barra6_tensao
+!Plot monitor object= barra6_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra7_tensao
+!Plot monitor object= barra7_tensao channels=(1 3 5) bases=(577.35026918962 577.35026918962 577.35026918962)
+!Export monitors barra8_tensao
+!Plot monitor object= barra8_tensao channels=(1 3 5) bases=(6350.8529610858 6350.8529610858 6350.8529610858)
+!Export monitors barra9_tensao
+!Plot monitor object= barra9_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra10_tensao
+!Plot monitor object= barra10_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra11_tensao
+!Plot monitor object= barra11_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra12_tensao
+!Plot monitor object= barra12_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra13_tensao
+!Plot monitor object= barra13_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)
+!Export monitors barra14_tensao
+!Plot monitor object= barra14_tensao channels=(1 3 5) bases=(19052.558883257 19052.558883257 19052.558883257)

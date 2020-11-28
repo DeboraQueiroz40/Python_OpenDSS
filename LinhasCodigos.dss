@@ -1,0 +1,74 @@
+New linecode.LINHA12 nphases=3 BaseFreq=60
+~ r1=3.3767712 
+~ x1=10.3097808
+~ c1=803.8128    
+
+New linecode.LINHA15 nphases=3 BaseFreq=60
+~ r1=9.4141872
+~ x1=38.8624896
+~ c1= 749.0074
+
+New linecode.LINHA23 nphases=3 BaseFreq=60
+~ r1=8.1875376
+~ x1=34.4942928
+~ c1=666.7993
+
+New linecode.LINHA24 nphases=3 BaseFreq=60
+~ r1=10.1250864
+~ x1=30.7219968
+~ c1=517.6068
+
+New linecode.LINHA25 nphases=3 BaseFreq=60
+~ r1=9.922968
+~ x1=30.2968512
+~ c1=526.741
+
+New linecode.LINHA34 nphases=3 BaseFreq=60
+~ r1=11.6758224
+~ x1=29.8002672
+~ c1=194.8637197
+
+New linecode.LINHA45 nphases=3 BaseFreq=60
+~ r1=2.326104
+~ x1=7.3372464
+~ c1=0.0
+
+New linecode.LINHA611 nphases=3 BaseFreq=60
+~ r1=1.0343322
+~ x1=2.166021
+~ c1=0.0
+
+New linecode.LINHA612 nphases=3 BaseFreq=60
+~ r1=1.3384899
+~ x1=2.7857709
+~ c1=0.0
+
+New linecode.LINHA613 nphases=3 BaseFreq=60
+~ r1=0.7203735
+~ x1=1.4186403
+~ c1=0.0
+
+New linecode.LINHA910 nphases=3 BaseFreq=60
+~ r1=0.3464109
+~ x1=0.920205
+~ c1=0.0
+
+New linecode.LINHA914 nphases=3 BaseFreq=60
+~ r1=1.3842279
+~ x1=2.9444382
+~ c1=0.0
+
+New linecode.LINHA1011 nphases=3 BaseFreq=60
+~ r1=0.8935245
+~ x1= 2.0916423
+~ c1=0.0
+     
+New linecode.LINHA1213 nphases=3 BaseFreq=60
+~ r1=2.4058188
+~ x1=2.1766932
+~ c1=0.0
+
+New linecode.LINHA1314 nphases=3 BaseFreq=60
+~ r1=1.8614277
+~ x1=3.7899378
+~ c1=0.0
